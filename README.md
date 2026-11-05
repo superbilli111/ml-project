@@ -6,13 +6,12 @@ business metadata (location, categories, attributes, hours, reviews).
 ## Project layout
 
 ```
-yelp-star-prediction/
-  data/raw/           raw Yelp JSON (never committed)
-  data/processed/     train/test parquet files (never committed)
-  models/             saved .joblib models (never committed)
-  results/            CSV results, reports, and comparison plots
-  src/                config.py, preprocess.py, train.py, compare.py
-  notebooks/          run_colab.ipynb — end-to-end Colab runner
+data/raw/           raw Yelp JSON (never committed)
+data/processed/     train/test parquet files (never committed)
+models/             saved .joblib models (never committed)
+results/            CSV results, reports, and comparison plots
+src/                config.py, preprocess.py, train.py, compare.py
+notebooks/          run_colab.ipynb — end-to-end Colab runner
 ```
 
 ## Setup
@@ -20,7 +19,7 @@ yelp-star-prediction/
 1. Clone the repo and create a virtual environment:
    ```
    git clone <repo-url>
-   cd yelp-star-prediction
+   cd ml-project
    python -m venv .venv
    source .venv/bin/activate
    pip install -r requirements.txt
