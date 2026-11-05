@@ -1,0 +1,12 @@
+data/raw/*
+data/processed/*
+models/*
+*.json
+*.tar
+__pycache__/
+.ipynb_checkpoints/
+.venv/
+
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!models/.gitkeep
