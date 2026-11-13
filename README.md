@@ -86,10 +86,90 @@ Note: `ridge` and `knn` models are saved as a `Pipeline(StandardScaler, model)`,
 so scaling is applied automatically. `rf` and `hgb` models take unscaled
 features directly.
 
-## Task breakdown
+#### Training Commands
 
-| Person   | Responsibilities                                              |
-|----------|-----------------------------------------------------------------|
-| Person A | Preprocessing write-up (cleaning, encoding, outliers) + Ridge model |
-| Person B | Encoding/scaling write-up + Random Forest model                 |
-| Both     | Model comparison (`compare.py`, `results/comparison.png`) + sentiment analysis stretch goal |
+<details>
+<summary>View training commands</summary>
+
+### Ridge Regression
+
+```bash
+python src/train.py --model ridge
+```
+
+### Random Forest
+
+```bash
+python src/train.py --model rf --sample 30000 --n-iter 4
+```
+
+### HistGradientBoosting
+
+```bash
+python src/train.py --model hgb
+```
+
+The training script evaluates models on validation and test datasets and saves trained models as `.joblib` files.
+
+</details>
+
+## Initial Experimental Results
+
+<details>
+<summary>View initial results and findings</summary>
+
+### Test Performance
+
+| Model | RMSE | MAE | R² |
+|---|---:|---:|---:|
+| Ridge Regression | 0.8431 | 0.6695 | 0.2590 |
+| Random Forest | 0.7948 | 0.6258 | 0.3415 |
+| HistGradientBoosting | 0.7950 | 0.6227 | 0.3411 |
+| Baseline (Training Mean) | 0.9795 | 0.8036 | ≈ 0.0000 |
+
+Lower RMSE and MAE indicate better prediction performance. Higher R² indicates better explanatory performance.
+
+### Initial Findings
+
+- Random Forest achieved the best test RMSE and R².
+- HistGradientBoosting achieved the lowest test MAE.
+- Both tree-based models outperformed Ridge Regression.
+- All three machine learning models outperformed the baseline.
+- Random Forest and HistGradientBoosting produced very similar results.
+
+These are initial experimental results and may be updated as the project develops.
+
+</details>
+
+## Comparing Models
+
+<details>
+<summary>View model comparison instructions</summary>
+
+Run:
+
+```bash
+python src/compare.py
+```
+
+This generates:
+
+- A sorted model comparison table.
+- `results/results.csv`
+- `results/comparison.png`
+
+</details>
+
+## Future Work
+
+<details>
+<summary>View planned improvements and experiments</summary>
+
+- Investigate K-Nearest Neighbors (KNN) as an additional regression model.
+- Perform feature importance analysis.
+- Investigate model errors and prediction patterns.
+- Explore additional feature engineering techniques.
+- Improve preprocessing and evaluation methodology.
+- Compare additional model configurations.
+
+</details>
